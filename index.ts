@@ -1,6 +1,5 @@
 import "@logseq/libs";
-import { BlockEntity, BlockIdentity } from "@logseq/libs/dist/LSPlugin.user";
-import { toBatchBlocks, mayBeReferenced } from "./util";
+import { BlockEntity } from "@logseq/libs/dist/LSPlugin.user";
 
 async function main(blockId: string) {
   const block = await logseq.Editor.getBlock(blockId, {
@@ -80,7 +79,7 @@ async function createPageIfNotExist(pageName: string) {
       }
     );
   } else {
-    debug("page already exist");
+    debug("page already exists");
     const lastBlock = await getLastBlock(pageName);
     if (lastBlock === null) {
       // 无法往空页面写入 block
